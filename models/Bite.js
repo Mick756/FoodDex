@@ -22,6 +22,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     },
 
+    user: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
+
   });
   return Bite;
 };

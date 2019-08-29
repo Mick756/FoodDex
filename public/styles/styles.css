@@ -1,9 +1,21 @@
-body {
+* {
   font-family: 'Roboto Condensed', sans-serif;
+}
+body {
   background-color: #ffecb3;
 }
 
 .navBar {
+  background-image: url(../images/wood_seemless.jpg);
+  color: white;
+}
+
+.quickLink {
+  font-size: 30px;
+  float: right;
+}
+
+.signIn {
 
 }
 
@@ -11,6 +23,31 @@ body {
 
 }
 
+.mainSearch {
+  width: 50%;
+}
+
 #pageLogo {
-  background-color: blue;
+  margin-left: 1%;
+  display: block;
+}
+
+.title {
+  color: white;
+  padding: 60px;
+  background-color: darkred;
+  border-radius: 5px;
+}
+
+.searchButton {
+  padding: 10px;
+  background-color: darkred;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.quickLink {
+  color: white;
+  font-size: 25px;
+  margin: 0 10px;
 }
