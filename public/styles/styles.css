@@ -1,3 +1,16 @@
-.list-group-item {
-  line-height: 2.5;
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #ffecb3;
+}
+
+.navBar {
+
+}
+
+#bites {
+
+}
+
+#pageLogo {
+  background-color: blue;
 }
