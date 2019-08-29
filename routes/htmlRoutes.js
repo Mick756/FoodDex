@@ -3,19 +3,25 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Bite.findAll({}).then(function(dbBites) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        bites: dbBites
       });
     });
   });
 
+  app.get("/login", function(req, res) {
+    res.render("login", {
+      msg:"Please Sign in to Submit a Bite.",
+    })
+  });
+
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/bite/:id", function(req, res) {
+    db.Bite.findOne({ where: { id: req.params.id } }).then(function(dbBite) {
+      res.render("bite", {
+        bite: dbBite
       });
     });
   });
