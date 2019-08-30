@@ -17,6 +17,13 @@ module.exports = function(app) {
     })
   });
 
+
+  app.get("/signup", function(req, res) {
+    res.render("signup", {
+      msg:" Please Sign up.",
+    })
+  });
+
   // Load example page and pass in an example by id
   app.get("/bite/:id", function(req, res) {
     db.Bite.findOne({ where: { id: req.params.id } }).then(function(dbBite) {
