@@ -1,8 +1,9 @@
 * {
   font-family: 'Roboto Condensed', sans-serif;
 }
+
 body {
-  background-color: #ffecb3;
+  height: 100%;
 }
 
 .navBar {
@@ -50,4 +51,19 @@ body {
   color: white;
   font-size: 25px;
   margin: 0 10px;
+}
+
+.loginButton {
+  color: white;
+  font-size: 20px;
+  width: 100%;
+  background-color: darkred;
+  padding: 10px 0;
+}
+
+.loginLabel {
+  font-size: 25px;
+}
+#loginForm {
+  margin-top: 5%;
 }
