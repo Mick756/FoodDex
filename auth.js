@@ -6,7 +6,7 @@ async function SignIn(username, password) {
         const user = await Auth.signIn(username, password);
         if (user.challengeName === 'SMS_MFA' ||
             user.challengeName === 'SOFTWARE_TOKEN_MFA') {
-            const code = getCodeFromUserInput();
+            const code = null;//getCodeFromUserInput();
             const loggedUser = await Auth.confirmSignIn(user, code, "SMS_MFA"
             );
         } else if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
