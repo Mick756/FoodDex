@@ -1,36 +1,39 @@
-<nav class="navbar navbar-expand-lg navBar" style="background-color: #e3f2fd;">
-    <a class="navbar-brand title" href="#">FoodDex</a>
-    <div class="collapse navbar-collapse" id="navbarColor03">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link quickLink" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link quickLink" href="#">Bites</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link quickLink" href="#">Your Bites</a>
-            </li>
-            {{#if signedIn}}
-                <li class="nav-item">
-                    <a class="nav-link quickLink" href="/signout" id="signOut">Sign Out</a>
+<div class="page">
+
+    <nav class="navbar navbar-expand-lg navBar" style="background-color: #e3f2fd;">
+        <a class="navbar-brand title" href="#">FoodDex</a>
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link quickLink" href="/">Home</a>
                 </li>
-            {{else}}
                 <li class="nav-item">
-                    <a class="nav-link quickLink" href="/login" id="signIn">Sign in</a>
+                    <a class="nav-link quickLink" href="#">Bites</a>
                 </li>
-            {{/if}}
-        </ul>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Bites" aria-label="Search">
-            <a class="my-2 my-sm-0 searchButton" type="submit">Search Recipes</a>
-        </form>
+                {{#if signedIn}}
+                    <li class="nav-item">
+                        <a class="nav-link quickLink" href="#">Your Bites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link quickLink" href="/signout" id="signOut">Sign Out</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link quickLink" href="/login" id="signIn">Sign in</a>
+                    </li>
+                {{/if}}
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Bites" aria-label="Search">
+                <a class="my-2 my-sm-0 searchButton" type="submit">Search Recipes</a>
+            </form>
+        </div>
+    </nav>
+    <div id="bites">
+        {{#each bites}}
+            <!-- {{this}} -->
+        {{/each}}
     </div>
-</nav>
-<div id="bites">
-    {{#each bites}}
-        <!-- {{this}} -->
-    {{/each}}
 </div>
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -39,6 +42,3 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="../models/index.js"></script>
-<script>
-
-</script>
