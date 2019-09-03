@@ -69,3 +69,25 @@ body {
 #loginForm {
   margin-top: 5%;
 }
+
+.biteContainer {
+  color: white;
+  text-align: center;
+  background-image: url(../images/wood_seemless.jpg);
+  padding: 30px;
+  border-radius: 5px;
+  width: 20%;
+  float: left;
+  margin: 1%;
+}
+
+.biteTitle {
+  background-color: darkred;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.biteImage {
+  width: 90%;
+  margin: 5%;
+}
