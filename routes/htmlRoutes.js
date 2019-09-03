@@ -1,4 +1,5 @@
 var db = require("../models");
+let path = require("path");
 
 module.exports = function(app) {
   // Load index page
@@ -19,6 +20,12 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     res.render("okta", {
       msg:" Please Sign up.",
+    })
+  });
+
+  app.get("/post", function(req, res) {
+    res.render("post", {
+      msg:"Post a bite",
     })
   });
 

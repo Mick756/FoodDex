@@ -1,4 +1,4 @@
-* {
+{
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -42,7 +42,7 @@ body {
 
 .searchButton {
   padding: 10px;
-  background-color: darkred;
+  background-color: rgb(242, 210, 169);
   border-radius: 5px;
   font-size: 20px;
 }
@@ -63,7 +63,9 @@ body {
 
 .loginLabel {
   font-size: 25px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
+
 #loginForm {
   margin-top: 5%;
 }

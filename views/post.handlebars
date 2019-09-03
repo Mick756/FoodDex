@@ -10,9 +10,6 @@
                 <li class="nav-item">
                     <a class="nav-link quickLink" href="#">Bites</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link quickLink" href="/post">Post a Bite</a>
-                </li>
                 {{#if signedIn}}
                     <li class="nav-item">
                         <a class="nav-link quickLink" href="#">Your Bites</a>
@@ -35,11 +32,31 @@
             </form>
         </div>
     </nav>
-    <div id="bites">
-        {{#each bites}}
-            <!-- {{this}} -->
-        {{/each}}
+
+    <div class="container">
+        <h1>Post a Bite</h1>
+
+        <form>
+            <div class="form-group">
+                <label for="biteNameInput">Bite Name</label>
+                <input type="text" class="form-control" id="biteNameInput" placeholder="Vegan Alfredo">
+            </div>
+            <div class="form-group">
+                <label for="descriptionInput">Bite Preparation</label>
+                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="A great dish for the family!"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="ingredientsInput">Ingredients (Separated by '*')</label>
+                <textarea class="form-control" id="ingredientsInput" rows="3" placeholder="vegan cheese*selantro"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="coverPhotoInput">Cover Photo</label>
+                <input type="file" class="form-control-file" id="coverPhotoInput">
+            </div>
+        </form>
+        <button class="loginButton">Post Bite!</button>
     </div>
+
 </div>
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
