@@ -4,22 +4,20 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Bite.findAll({}).then(function(dbBites) {
-      res.render("index", {
-        msg: "Welcome!",
-        bites: dbBites
+      res.render("okta", {
       });
     });
   });
 
   app.get("/login", function(req, res) {
-    res.render("login", {
+    res.render("okta", {
       msg:"Please Sign in to Submit a Bite.",
     })
   });
 
 
   app.get("/signup", function(req, res) {
-    res.render("signup", {
+    res.render("okta", {
       msg:" Please Sign up.",
     })
   });

@@ -97,3 +97,70 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+$("login-form").on("submit", function() { 
+var userName = $(".").val().trim();
+var password = $(".").val().trim();
+
+var credentials = {
+  userName: userName,
+  password: password,
+}
+
+auth.signIn(credentials);
+
+})
+
+
+// gather data from form, create req.body keys, ajax Post call to route. 
+$("new-bite-form").on("submit", function () {
+  event.preventDefault();
+var title= $(".").val().trim();
+var user = $(".").val().trim();
+var preparation = $(".").val().trim();
+var ingredients = $(".").val().trim();
+
+// need source for image url;
+// creating req.body to pass through;
+// AWS call for image storage and url response. 
+
+var image = $.ajax()
+
+
+var body = {
+  title: title,
+  ingredients: ingredients,
+  preparation: preparation,
+  user:user,
+  image: image, 
+};
+
+$.ajax("/api/bites/", {
+  type: "POST",
+  data: body,
+}).then(
+  function() {
+    console.log("adding new Bite titled: ", + title);
+    location.reload();
+  }
+);
+});
+
+
+$(document).on("click", "delete-bite-button", function {
+  var id = $(this).data("id");
+  $.ajax("/api/bites/ " + id, {
+    type: "DELETE",
+    data: id,
+  }).then(
+    function() {
+      console.log("delete request submitted for id: ", + id);
+      location.reload();
+    }
+  );
+  });
+
+  
+

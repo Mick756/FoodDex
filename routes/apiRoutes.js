@@ -26,8 +26,8 @@ module.exports = function(app) {
       }
     }).then(function(dbBite) {
       res.json(dbBite);
-    })
-  })
+    });
+  });
 
   // Delete a Bite by id
   app.delete("/api/bites/:id", function(req, res) {
