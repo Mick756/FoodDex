@@ -40,7 +40,7 @@
                 <label class="loginLabel" for="signUpGenderInput">Gender</label>
                 <input type="text" class="form-control" id="signUpGenderInput" placeholder="Gender">
             </div>
-            <button type="submit" class="loginButton">Sign Up</button>
+            <button class="loginButton">Sign Up</button>
         </form>
     </div>
 </div>
@@ -50,9 +50,8 @@
 <link href="../public/styles/styles.css" rel="stylesheet" >
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="../models/index.js"></script>
-<script src="../public/js/auth.js"></script>
-<script>
+<script type="text/javascript" src="../public/js/auth.js"></script>
+<script type="text/javascript">
     $(document).on("click", ".loginButton", (e) => {
         e.preventDefault();
         signUp($(".signUpEmailInput").val(), $(".signUpPasswordInput").val(), $(".signUpPhoneNumberInput").val(),
