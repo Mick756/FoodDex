@@ -49,6 +49,7 @@
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
 <script type="text/javascript">
     let S3 = new AWS.S3();
+    let timerId;
 
     $(document).on("click", ".postBiteButton", function (e) {
         let file = document.getElementById("coverPhotoInput").files[0];
@@ -70,10 +71,12 @@
             contentType: false,
             processData: false
         }).then(function (res) {
-            location.replace("/");
-        }).catch(function (err) {
-            location.replace("/");
-        });
+        }).catch(function (err) {});
+        if (!timerId) {
+            timerId = setTimeout(() => {
+                location.replace("/");
+            }, 3000);
+        }
     });
 
 </script>
