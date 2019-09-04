@@ -12,19 +12,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/login", function(req, res) {
-    res.render("login", {
-      msg:"Please Sign in to Submit a Bite.",
-    })
-  });
-
-
-  app.get("/signup", function(req, res) {
-    res.render("signup", {
-      msg:" Please Sign up.",
-    })
-  });
-
   app.get("/post", function(req, res) {
     res.render("post", {
       msg:"Post a bite",
