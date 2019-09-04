@@ -1,4 +1,6 @@
 var db = require("../models");
+let Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
 
@@ -14,7 +16,9 @@ module.exports = function(app) {
     var title = req.params.title;
     db.Bite.findAll({
       where: {
-        title: title,
+        title: {
+          [Op.like]: "%" + title + "%"
+        },
       }
     }).then(function(dbBites) {
       res.render("index", {

@@ -9,16 +9,11 @@ let config = require(__dirname + "/../config/config.json")[env];
 let db = {};
 
 let sequelize;
-if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
+// if (process.env.JAWSDB_URL) {
+//   sequelize = new Sequelize(process.env.JAWSDB_URL);
+// } else {
+  sequelize = new Sequelize("mysql://fgco3g05txa5ocut:r1w2ri3rjlncb66w@uoa25ublaow4obx5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/vff2fhd1nutz0ovm");
+// }
 
 fs.readdirSync(__dirname)
   .filter(function(file) {
