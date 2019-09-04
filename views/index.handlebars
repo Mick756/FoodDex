@@ -33,4 +33,31 @@
 <link type="text/css" rel="stylesheet" href="../public/styles/styles.css" >
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    app.get("/user/:id", function (req, res) {
+        db.User.findAll({ where: { id: req.params.id } }).then(function(user) {
+            res.json(user.name);
+        });
+    });
+
+    // Editing a Bite
+    app.put("/api/bites/:id", function(req, res) {
+        var body = req.body;
+
+        db.Bite.update(body, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbBite) {
+            res.json(dbBite);
+        })
+    });
+
+    // Delete a Bite by id
+    app.delete("/api/bites/:id", function(req, res) {
+        db.Bite.destroy({ where: { id: req.params.id } }).then(function(dbBite) {
+            res.json(dbBite);
+        });
+    });
+</script>
 
