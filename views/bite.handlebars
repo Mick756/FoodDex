@@ -17,14 +17,19 @@
             </form>
         </div>
     </nav>
-    <div id="bites">
-        {{#each bites}}
-            <div class="biteContainer" id={{this.id}}>
-                <h2 class="biteTitle">{{this.title}}</h2>
-                <img class="biteImage" src={{this.image}}>
-                <p class="bitePrep">{{this.preparation}}</p>
-            </div>
-        {{/each}}
+    <div class="container">
+        <div class="bigBiteContainer">
+            <h1 class="biteHeader">{{bite.title}}</h1>
+            <hr>
+            <h2 class="biteHeader">How it looks</h2>
+            <img class="bigBiteImage" src={{bite.image}}>
+            <hr>
+            <h2 class="biteHeader">Dish Ingredients</h2>
+            <p class="bigBiteDescription">{{bite.ingredients}}</p>
+            <hr>
+            <h2 class="biteHeader">Preparation</h2>
+            <p class="bigBitePreparation">{{bite.preparation}}</p>
+        </div>
     </div>
 </div>
 
@@ -34,16 +39,5 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $(document).on("click", ".biteContainer", function (event) {
-        let id = $(this).attr("id");
-        location.replace("/bite/" + id);
-    });
 
-    $(".form-inline").on("submit", function(event) {
-        event.preventDefault();
-        let title = $("#title").val().trim();
-
-        location.replace("/search/bites/" + title);
-    })
 </script>
-
