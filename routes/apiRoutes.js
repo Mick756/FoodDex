@@ -10,14 +10,16 @@ module.exports = function(app) {
   });
 
   //  Search Bites by Title
-  app.get("/api/bites/:title", function(req, res) {
+  app.get("/search/bites/:title", function(req, res) {
     var title = req.params.title;
     db.Bite.findAll({
       where: {
         title: title,
       }
     }).then(function(dbBites) {
-      res.json(dbBites);
+      res.render("index", {
+        bites: dbBites
+      });
     });
   });
 

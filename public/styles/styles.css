@@ -6,6 +6,10 @@ body {
   height: 100%;
 }
 
+#mainBody {
+  background-color: #f2e4a6;
+}
+
 .navBar {
   background-image: url(../images/wood_seemless.jpg);
   color: white;
@@ -73,6 +77,9 @@ body {
   text-align: center;
   background-image: url(../images/wood_seemless.jpg);
   padding: 30px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
   border-radius: 5px;
   width: 20%;
   float: left;
@@ -85,7 +92,44 @@ body {
   border-radius: 5px;
 }
 
+.bitePrep {
+  background-color: darkred;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .biteImage {
   width: 90%;
   margin: 5%;
+  height: 23vh;
+  border-radius: 3%;
+}
+
+.bigBiteContainer {
+  background-image: url(../images/wood_seemless.jpg);
+  padding: 30px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+  margin: 5%;
+  color: white;
+}
+
+.bigBiteTitle {
+
+}
+
+.bigBiteDescription {
+  background-color: darkred;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bigBitePreparation {
+  background-color: darkred;
+  padding: 10px;
+  border-radius: 5px;
+}
+.biteHeader {
+  color: black;
 }
