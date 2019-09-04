@@ -12,8 +12,8 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search Title" aria-label="Search">
-                <a class="my-2 my-sm-0 searchButton" type="submit">Search Bites</a>
+                <input id="title" class="form-control mr-sm-2" type="search" placeholder="Search Bites" aria-label="Search">
+                <a class="my-2 my-sm-0 searchButton" type="submit">Search Recipes</a>
             </form>
         </div>
     </nav>
@@ -27,6 +27,25 @@
         {{/each}}
     </div>
 </div>
+
+<script>
+    $(".form-inline").on("submit", function() {
+    event.preventDefault();
+    var title = $("#title").val().trim();
+
+    var body = {
+      title: title,
+    };
+
+    $.ajax("/api/bites:" + title, {
+      type: "GET",
+      data: body,
+    }).then(
+      function() {
+        location.reload();
+      });
+  })
+</script>
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
