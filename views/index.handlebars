@@ -8,26 +8,8 @@
                     <a class="nav-link quickLink" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link quickLink" href="#">Bites</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link quickLink" href="/post">Post a Bite</a>
                 </li>
-                {{#if signedIn}}
-                    <li class="nav-item">
-                        <a class="nav-link quickLink" href="#">Your Bites</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link quickLink" href="/signout" id="signOut">Sign Out</a>
-                    </li>
-                {{else}}
-                    <li class="nav-item">
-                        <a class="nav-link quickLink" href="/login" id="signIn">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link quickLink" href="/signup" id="signUp">Sign Up</a>
-                    </li>
-                {{/if}}
             </ul>
             <form class="form-inline">
                 <input id="title" class="form-control mr-sm-2" type="search" placeholder="Search Bites" aria-label="Search">
@@ -37,7 +19,11 @@
     </nav>
     <div id="bites">
         {{#each bites}}
-            <!-- {{this}} -->
+            <div class="biteContainer" data-id={{this.id}}>
+                <h2 class="biteTitle">{{this.title}}</h2>
+                <img class="biteImage" src={{this.image}}>
+                <p class="bite">{{this.preparation}}</p>
+            </div>
         {{/each}}
     </div>
 </div>
@@ -63,6 +49,7 @@
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link href="../public/styles/styles.css" rel="stylesheet" >
+<link type="text/css" rel="stylesheet" href="../public/styles/styles.css" >
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+

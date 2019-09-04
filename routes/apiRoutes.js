@@ -4,7 +4,7 @@ module.exports = function(app) {
 
   // Get all bites
   app.get("/api/bites", function(req, res) {
-    db.Bites.findAll({}).then(function(dbBites) {
+    db.Bite.findAll({}).then(function(dbBites) {
       res.json(dbBites);
     });
   });
@@ -23,9 +23,8 @@ module.exports = function(app) {
 
   // Create a new Bite
   app.post("/api/bites", function(req, res) {
-    db.Bites.create(req.body).then(function(dbBites) {
+    db.Bite.create(req.body).then(function(dbBites) {
       res.json(dbBites);
     });
   });
-
 };
