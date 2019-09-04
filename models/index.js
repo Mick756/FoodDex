@@ -8,10 +8,11 @@ let env = process.env.NODE_ENV || "development";
 let config = require(__dirname + "/../config/config.json")[env];
 let db = {};
 
+let sequelize;
 if (process.env.JAWSDB_URL) {
-  let sequelize = new Sequelize(process.env.JAWSDB_URL);
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
-  let sequelize = new Sequelize(
+  sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
