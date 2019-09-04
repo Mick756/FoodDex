@@ -1,6 +1,5 @@
 var db = require("../models");
 
-
 module.exports = function(app) {
   // Get all bites
   app.get("/api/bites", function(req, res) {
@@ -23,7 +22,6 @@ module.exports = function(app) {
   });
 
   // Editing a Bite
-
   app.put("/api/bites/:id", function(req, res) {
     var body = req.body;
 

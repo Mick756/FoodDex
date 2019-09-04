@@ -63,11 +63,34 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="../public/styles/styles.css" rel="stylesheet" >
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
 <script type="text/javascript">
 
+    AWS.config.update({
+        accessKeyId: "AKIAR22BE2FT36TMQTSZ",
+        secretAccessKey: "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",
+        region: "us-west-2"
+    });
+
+    let S3 = new AWS.S3();
+
     $(document).on("click", ".postBiteButton", function (e) {
-        
+        let file = document.getElementById("coverPhotoInput").files[0];
+        let photoKey = $("#biteTitleInput").val() + "";
+        var fd = new FormData();
+        fd.append("file", file);
+        fd.append("name", photoKey);
+
+        $.ajax({
+            url: "/api/upload",
+            type: "post",
+            data: fd,
+            contentType: false,
+            processData: false
+        }).then(function (res) {
+            console.log(res);
+        });
     });
 
 </script>
