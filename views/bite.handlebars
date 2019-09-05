@@ -5,7 +5,7 @@
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link quickLink" href="/">Home</a>
+                    <a class="nav-link quickLink" href="/">Bites</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link quickLink" href="/post">Post a Bite</a>
@@ -13,18 +13,17 @@
             </ul>
             <form class="form-inline">
                 <input id="title" class="form-control mr-sm-2" type="search" placeholder="Search Bites" aria-label="Search">
-                <button class="my-2 my-sm-0 searchButton">Search Recipes</button>
+                <button class="my-2 my-sm-0 searchButton" type="submit">Search Recipes</button>
             </form>
         </div>
     </nav>
     <div class="container">
         <div class="bigBiteContainer">
-            <h1 class="biteHeader">{{bite.title}}</h1>
+            <h1 class="bigBiteTitle biteHeader">{{bite.title}}</h1>
             <hr>
-            <h2 class="biteHeader">How it looks</h2>
             <img class="bigBiteImage" src={{bite.image}}>
             <hr>
-            <h2 class="biteHeader">Dish Ingredients</h2>
+            <h2 class="biteHeader">Ingredients</h2>
             <p class="bigBiteDescription">{{bite.ingredients}}</p>
             <hr>
             <h2 class="biteHeader">Preparation</h2>
@@ -38,6 +37,10 @@
 <link type="text/css" rel="stylesheet" href="../public/styles/styles.css" >
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
 
+    $(".form-inline").on("submit", function(event) {
+        event.preventDefault();
+        location.replace("/search/bites/" + $("#title").val().trim());
+    });
 </script>
