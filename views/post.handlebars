@@ -5,12 +5,12 @@
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link quickLink" href="/">Home</a>
+                    <a class="nav-link quickLink" href="/">Bites</a>
                 </li>
             </ul>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search Title" aria-label="Search">
-                <a class="my-2 my-sm-0 searchButton" type="submit">Search Recipes</a>
+                <input id="title" class="form-control mr-sm-2" type="search" placeholder="Search Bites" aria-label="Search">
+                <button class="my-2 my-sm-0 searchButton">Search Recipes</button>
             </form>
         </div>
     </nav>
@@ -20,23 +20,23 @@
 
         <form>
             <div class="form-group">
-                <label for="biteTitleInput">Bite Title</label>
+                <label class="postLabel" for="biteTitleInput">Bite Title</label>
                 <input type="text" class="form-control" id="biteTitleInput" placeholder="Vegan Alfredo">
             </div>
             <div class="form-group">
-                <label for="preparationInput">Bite Preparation</label>
+                <label class="postLabel" for="preparationInput">Preparation</label>
                 <textarea class="form-control" id="preparationInput" rows="3" placeholder="A great dish for the family!"></textarea>
             </div>
             <div class="form-group">
-                <label for="ingredientsInput">Ingredients (Separated by '*')</label>
+                <label class="postLabel" for="ingredientsInput">Ingredients</label>
                 <textarea class="form-control" id="ingredientsInput" rows="3" placeholder="Describe how to make it!"></textarea>
             </div>
             <div class="form-group">
-                <label for="coverPhotoInput">Cover Photo</label>
+                <label class="postLabel" for="coverPhotoInput">Cover Photo</label>
                 <input type="file" class="form-control-file" id="coverPhotoInput">
             </div>
         </form>
-        <button class="loginButton postBiteButton" >Post Bite!</button>
+        <button class="loginButton postBiteButton" type="submit">Post Bite!</button>
     </div>
 
 </div>
@@ -48,20 +48,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
 <script type="text/javascript">
+
     let S3 = new AWS.S3();
     let timerId;
 
     $(document).on("click", ".postBiteButton", function (e) {
+
         let file = document.getElementById("coverPhotoInput").files[0];
         var fd = new FormData();
-        fd.append("file", file);
-        fd.append("title", $("#biteTitleInput").val());
-        fd.append("ingredients", $("#ingredientsInput").val());
-        fd.append("preparation", $("#preparationInput").val());
+        let $title = $("#biteTitleInput");
+        let $ingredients = $("#ingredientsInput");
+        let $preparation = $("#preparationInput");
 
-        $("#biteTitleInput").val("");
-        $("#ingredientsInput").val("");
-        $("#preparationInput").val("");
+        fd.append("file", file);
+        fd.append("title", $title.val().trim());
+        fd.append("ingredients", $ingredients.val().trim());
+        fd.append("preparation", $preparation.val().trim());
+
+        $title.val("");
+        $ingredients.val("");
+        $preparation.val("");
         document.getElementById("coverPhotoInput").files.length = 0;
 
         $.ajax({
@@ -77,6 +83,11 @@
                 location.replace("/");
             }, 3000);
         }
+    });
+
+    $(".form-inline").on("submit", function(event) {
+        event.preventDefault();
+        location.replace("/search/bites/" + $("#title").val().trim());
     });
 
 </script>
